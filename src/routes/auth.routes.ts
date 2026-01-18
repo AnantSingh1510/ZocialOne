@@ -8,6 +8,9 @@ import { User } from '../entities/User';
 const router = Router();
 const userRepository = AppDataSource.getRepository(User);
 
+// For some reason I was having typescript type issue in the jwt.sign part when I was adding the 
+// expiresIn option in it, therefore I had to remove it - Anant
+
 router.post('/register',
   [
     body('name').trim().notEmpty().withMessage('Name is required'),
